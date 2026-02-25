@@ -1,0 +1,209 @@
+---
+title: "Introduction to machine learning 1"
+author: "Sahar Kamali"
+date: "2026-02-02"
+output: pdf_document
+---
+
+# First up kmeans()
+
+Demo of using kmeans() function in base R. First make some data with a known strucutre.
+
+```{r}
+tmp <- c( rnorm(30, -3), rnorm(30, 3) )
+x <- cbind(x=tmp, y=rev(tmp))
+plot(x)
+```
+
+
+Now we have some made up data in `x` let's see how kmeans works with this data 
+
+```{r}
+k <- kmeans(x, centers = 2, nstart = 20)
+k
+```
+> Q. How many points are in each cluster? 
+
+```{r}
+k$size
+```
+
+> Q. How do we get to the cluster memebership/assignment. 
+
+```{r}
+k$cluster
+```
+
+
+> Q. What about cluster centers? 
+
+```{r}
+k$centers
+```
+
+Now we got to the main results lets use them to plot our data with kmean result. 
+
+```{r}
+plot(x, col=k$cluster)
+points(k$centers, col="blue", pch=15)
+```
+
+## Now for Hierarchical Clustering
+
+we will cluster the same data `x` with the `hclust()`. In this case `hclust()` requires a distance matrix as input. 
+
+```{r}
+hc <- hclust( dist(x) )
+hc
+```
+lets plot out hclust result 
+
+```{r}
+plot (hc)
+```
+
+To get our cluster membership vctor we need to "cut" the tree with the `cutree()`.
+
+```{r}
+grps <- cutree(hc, h=8)
+grps
+```
+
+Now plot our data with the hclust() results. 
+
+```{r}
+plot(x, col=grps)
+```
+
+
+# Principal Components Analysis (PCA)
+
+## PCA of UK food data 
+
+read data from website and try a few visualizations. 
+
+```{r}
+url <- "https://tinyurl.com/UK-foods"
+x <- read.csv(url, row.names=1)
+x
+```
+
+>Q1. How many rows and columns are in your new data frame named x? What R functions could you use to answer this questions? 
+data frame x has 17 rows and 5 columns.
+dim(x) → returns both rows and columns (17 5)
+nrow(x) → returns number of rows (17)
+ncol(x) → returns number of columns (5)
+
+>Q2. Which approach to solving the ‘row-names problem’ mentioned above do you prefer and why? Is one approach more robust than another under certain circumstances? 
+I prefer using read.csv(..., row.names = 1) because it sets the row names correctly from the start and does not change the data if the code is run multiple times.
+The other approach is less robust because removing the first column repeatedly can accidentally delete real data.
+
+
+```{r}
+cols <- rainbow(nrow(x))
+barplot( as.matrix(x), col=cols )
+```
+
+>Q3: Changing what optional argument in the above barplot() function results in the following plot?
+Change the beside argument to beside = FALSE (or remove beside = TRUE).
+This makes the bars stacked instead of side-by-side.
+
+>Q4: Changing what optional argument in the above ggplot() code results in a stacked barplot figure?
+Change the geom_col() argument to position = "stack" (or remove position = "dodge").
+
+```{r}
+barplot( as.matrix(x), col=cols, beside=TRUE) 
+```
+
+
+>Q5: We can use the pairs() function to generate all pairwise plots for our countries. Can you make sense of the following code and resulting figure? What does it mean if a given point lies on the diagonal for a given plot?
+The pairs() plot shows pairwise relationships between countries.
+Points on the diagonal represent a country plotted against itself (its name/label).
+
+
+```{r}
+pairs(x, col=cols)
+```
+
+>Q6. Based on the pairs and heatmap figures, which countries cluster together and what does this suggest about their food consumption patterns? Can you easily tell what the main differences between N. Ireland and the other countries of the UK in terms of this data-set?
+England, Wales, and Scotland cluster together.
+Northern Ireland clusters separately, suggesting its food consumption patterns differ from the rest of the UK.
+
+
+PCA to the rescue!! 
+The main base R PCA function is called `prcomp()` and we will need to give it the transpose of our input data! 
+
+```{r}
+pca <- prcomp( t(x) )
+```
+
+
+There is a nice summary of how well PCA is doing
+```{r}
+summary(pca)
+```
+
+
+
+```{r}
+attributes(pca)
+```
+To make our new PCA plot (a.k.a. PCA score plot) we access `pca$x`
+
+>Q7. Complete the code below to generate a plot of PC1 vs PC2. The second line adds text labels over the data points.
+
+```{r}
+plot(pca$x[,1], pca$x[,2])
+text(pca$x[,1], pca$x[,2], colnames(x))
+```
+
+color up the plot 
+
+>Q8. Customize your plot so that the colors of the country names match the colors in our UK and Ireland map and table at start of this document.
+
+```{r}
+country_col <- c("orange", "red", "blue", "green")
+plot(pca$x[,1], pca$x[,2], xlab = "PC1", ylab="PC2")
+text(pca$x[,1], pca$x[,2], colnames(x),
+col=country_col)
+```
+
+
+## PCA of RNA-Seq data
+
+>Q10: How many genes and samples are in this data set? How many PCs do you think it will take to have a useful overview of this data set (see below)?
+The dataset has 100 genes (rows) and 10 samples (columns).
+2 principal components (PC1 and PC2) are enough to get a useful overview of the data.What we are seeing below are just the head(rna.data) output, which shows only the first 6 genes, not the full dataset.
+
+Read in data from website 
+```{r}
+url2 <- "https://tinyurl.com/expression-CSV"
+rna.data <- read.csv(url2, row.names=1)
+head(rna.data)
+```
+
+```{r}
+pca <- prcomp( t(rna.data) )
+summary(pca)
+```
+
+Do our PCA plot of this RNA-Seq data 
+```{r}
+plot(pca$x[,1], pca$x[,2], xlab="PC1", ylab="PC2") 
+```
+
+
+```{r}
+plot(pca$x[,1], pca$x[,2], xlab="PC1", ylab="PC2") 
+text(pca$x[,1], pca$x[,2], colnames(rna.data))
+```
+
+
+
+
+
+
+
+
+
+
