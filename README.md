@@ -5,7 +5,7 @@ My classwork from [Bimm143](https://bioboot.github.io/bimm143_W26/schedule/#15) 
 
 ## Class Work
 
-- [Class 5](class%205/) Data Viz with ggplot 
+- [Class 5 Data Viz with ggplot](class%205/class05/class05.html) 
 - [Week 6 Lab](week%206%20lab/) R functions 
 - [Class 8 Mini Project](Class8miniproject/) RNA-seq Analysis 
 - [Class 9 Candy Mini Project](Class%209%20candy%20mini%20project/) Cancer mutations
