@@ -1,0 +1,51 @@
+---
+title: "Class19 Mini Project"
+author: "Sahar Kamali"
+format: html
+---
+
+```{r}
+library(Biostrings)
+```
+
+
+
+
+```{r}
+getwd()
+```
+
+
+```{r}
+list.files()
+```
+
+
+```{r}
+seqs <- readAAStringSet("A19156624_mutant_seq (1).fa")
+```
+
+
+```{r}
+wt <- seqs[[1]]
+mut <- seqs[[2]]
+```
+
+
+```{r}
+wt_letters <- strsplit(as.character(wt), "")[[1]]
+mut_letters <- strsplit(as.character(mut), "")[[1]]
+```
+
+
+```{r}
+pos <- which(wt_letters != mut_letters)
+pos
+```
+
+
+```{r}
+wt_letters[pos]
+mut_letters[pos]
+```
+
