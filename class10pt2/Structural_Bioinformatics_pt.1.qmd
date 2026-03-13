@@ -1,0 +1,98 @@
+---
+title: "Structural Bioinformatics (pt1)"
+author: "Sahar Kamali"
+format:
+  pdf:
+    prefer-html: true
+---
+
+##Introduction to the RCSB Protein Data Bank (PDB)
+
+PDB statistics
+
+```{r}
+data <- read.csv("Data Export Summary.csv", stringsAsFactors = FALSE)
+
+View(data)
+```
+
+
+```{r}
+pdb <- read.csv("Data Export Summary.csv")
+
+pdb
+```
+
+>Q1: What percentage of structures in the PDB are solved by X-Ray and Electron Microscopy.
+
+```{r}
+pdb_num <- pdb
+pdb_num[-1] <- lapply(pdb_num[-1], function(x) as.numeric(gsub(",", "", x)))
+
+total <- sum(pdb_num$Total)
+
+xray <- sum(pdb_num$X.ray)
+
+em <- sum(pdb_num$EM)
+
+xray_percent <- xray / total * 100
+em_percent <- em / total * 100
+
+xray_percent
+em_percent
+```
+
+
+
+>Q2: What proportion of structures in the PDB are protein?
+
+```{r}
+protein_rows <- pdb_num$Molecular.Type %in% c("Protein (only)", "Protein/Oligosaccharide", "Protein/NA")
+
+protein_total <- sum(pdb_num$Total[protein_rows])
+
+protein_percent <- protein_total / total * 100
+
+protein_percent
+```
+
+
+>Q3: Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB?
+
+Searching “HIV-1 protease” on the RCSB PDB homepage returns 1,173 structures. 
+
+##Visualizing the HIV-1 protease structure
+
+Using Mol 
+Overall structure of HIV-1 protease (PDB: 1HSG)
+![](1HSG.png)
+
+
+Close up of the HIV-1 protease active site highlighting the two catalytic Asp25 residues (one from each chain) shown in green, along with the bound ligand and nearby water molecules.
+![](11HSG.png)
+
+>Q4: Water molecules normally have 3 atoms. Why do we see just one atom per water molecule in this structure?
+
+In the structure, each water molecule is shown as one atom because X-ray structures usually model only the oxygen atom of water (the hydrogens are not resolved well), so the water appears as a single sphere/point.
+
+>Q5: There is a critical “conserved” water molecule in the binding site. Can you identify this water molecule? What residue number does this water molecule have
+
+The conserved water molecule in the HIV-1 protease active site is associated with the catalytic residue Asp25 (one in each chain).
+
+>Q6: Generate and save a figure clearly showing the two distinct chains of HIV-protease along with the ligand. You might also consider showing the catalytic residues ASP 25 in each chain and the critical water (we recommend “Ball & Stick” for these side-chains). Add this figure to your Quarto document.
+
+see image above. 
+
+##Introduction to Bio3D in R
+
+```{r}
+
+library(bio3d)
+```
+
+Reading PDB file data into R
+
+```{r}
+pdb <- read.pdb("1hsg")
+pdb
+```
