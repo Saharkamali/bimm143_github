@@ -28,14 +28,25 @@ the steps to using git involves
       `git commit -m "your wee msg"` 
       
       
+      
+5. Git Push to sync changes to GitHub 
+     the UP arrow in RStudio 
+    `git push` 
+
+6. Git Pull to sync from GitHub 
+    the Down arrow on RStudio 
+    `git pill` 
+
 you can check your project history and status 
       `git status` 
       `git log`, (push Q to exist)
       
 
+My AWS instances:
+ssh -i ~/Downloads/bimm143_Sahar.pem ubuntu@ec2-34-214-18-211.us-west-2.compute.amazonaws.com
       
-      
-      
-      
+To copy from my AWS instance 
+scp -i ~/Downloads/bimm143_Sahar.pem ubuntu@ec2-34-214-18-211.us-west-2.compute.amazonaws.com:~/work/results.tsv .
+
       
      
