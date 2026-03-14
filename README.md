@@ -15,6 +15,7 @@ My classwork from [Bimm143](https://bioboot.github.io/bimm143_W26/schedule/#15) 
 
 - [Introduction to Machine Learning](7. Introduction to machine learning/class7-.pdf)
 
+
 -- Class 10 Part 2
   - [PDF](class10pt2/Structural_Bioinformatics_pt.1.pdf)
   - [QMD](class10pt2/Structural_Bioinformatics_pt.1.qmd)
@@ -46,4 +47,4 @@ My classwork from [Bimm143](https://bioboot.github.io/bimm143_W26/schedule/#15) 
   - [QMD](Class19/class19/class19.qmd)
 
 
-quarto render */* .qmd --to gfm 
+
