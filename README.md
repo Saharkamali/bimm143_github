@@ -5,19 +5,22 @@ My classwork from [Bimm143](https://bioboot.github.io/bimm143_W26/schedule/#15) 
 
 ## Class Work
 
-- [Class 5 Data Viz with ggplot](class05/class05/class05.pdf)
+- class 5
+   - [Class 5 Data Viz with ggplot](class05/class05/class05.pdf)
+   
+- Class 6
+   - [Class 6 R functions ](class06/lab06.pdf) 
 
-- [Class 6 R functions ](class06/lab06.pdf) 
+- Class 7 
+   - [Introduction to Machine Learning](7.%20Introduction%20to%20machine%20learning/class7-.pdf)
 
-- [Class 8 Mini Project](Class8miniproject/) RNA-seq Analysis 
+- Class 8
+   - [Class 8 Mini Project](Class8miniproject/) RNA-seq Analysis 
 
-- [Class 9 Candy Mini Project](Class09/Class%209%20candy%20mini%20project/Candy-mini-project.pdf)
+- Class 9
+   - [Class 9 Candy Mini Project](Class09/Class%209%20candy%20mini%20project/Candy-mini-project.pdf)
 
-- [Introduction to Machine Learning](7.%20Introduction%20to%20machine%20learning/class7-.pdf)
-
-
-
--- Class 10 Part 2
+- Class 10 Part 2
   - [PDF](class10pt2/Structural_Bioinformatics_pt.1.pdf)
   - [QMD](class10pt2/Structural_Bioinformatics_pt.1.qmd)
 
