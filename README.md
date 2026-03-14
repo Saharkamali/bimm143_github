@@ -11,9 +11,10 @@ My classwork from [Bimm143](https://bioboot.github.io/bimm143_W26/schedule/#15) 
 
 - [Class 8 Mini Project](Class8miniproject/) RNA-seq Analysis 
 
-- [Class 9 Candy Mini Project](Class09/Class 9 candy mini project/Candy-mini-project.pdf)
+- [Class 9 Candy Mini Project](Class09/Class%209%20candy%20mini%20project/Candy-mini-project.pdf)
 
-- [Introduction to Machine Learning](7. Introduction to machine learning/class7-.pdf)
+- [Introduction to Machine Learning](7.%20Introduction%20to%20machine%20learning/class7-.pdf)
+
 
 
 -- Class 10 Part 2
@@ -25,18 +26,18 @@ My classwork from [Bimm143](https://bioboot.github.io/bimm143_W26/schedule/#15) 
   - [QMD](class11/Class_11_Bioinformatics/AlphaFold.qmd)
 
 - Class 12
-  - [PDF](Class 12/class12lab/Class12.pdf)
-  - [RMD](Class 12/class12lab/Class12.Rmd)
+  - [PDF](Class%2012/class12lab/Class12.pdf)
+  - [RMD](Class%2012/class12lab/Class12.Rmd)
 
 - Class 13
   - [PDF](class13/Class13/class13.pdf)
   - [QMD](class13/Class13/class13.qmd)
-  - [PDF Part 2](class13/Class13/class13 part 2.pdf)
-
+  - [PDF Part 2](class13/Class13/class13%20part%202.pdf)
+  
 - Class 14
   - [PDF](Class14/class14/class14.pdf)
   - [QMD](Class14/class14/class14.qmd)
-  - [PDF Part 2](Class14/class14/class14 part 2 .pdf)
+  - [PDF Part 2](Class14/class14/class14%20part%202.pdf)
   
 - Class 18
   - [PDF](class18/class18/class18.pdf)
