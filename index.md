@@ -1,3 +1,10 @@
+
+---
+layout: default
+title: Bimm143_github
+---
+
+
 # Bimm143_github
 My classwork from [Bimm143](https://bioboot.github.io/bimm143_W26/schedule/#15) at UC San Diego 
 
